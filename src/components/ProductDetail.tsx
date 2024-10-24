@@ -10,6 +10,7 @@ import {
   Card,
   CardContent,
   CardActions,
+  Rating, // Import the Rating component
 } from "@mui/material";
 import "./ProductDetail.css";
 
@@ -19,7 +20,7 @@ const ProductDetail: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`https://dummyjson.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
@@ -37,7 +38,7 @@ const ProductDetail: React.FC = () => {
       <Grid container spacing={4} className="product-detail">
         <Grid item xs={12} md={6}>
           <img
-            src={product.image}
+            src={product.thumbnail}
             alt={product.title}
             className="product-detail_image"
           />
@@ -58,6 +59,40 @@ const ProductDetail: React.FC = () => {
               <Typography variant="h5" color="primary" gutterBottom>
                 {product.price} USD
               </Typography>
+              {product?.discountPercentage &&<Typography
+                variant="h5"
+                className="product-detail_discount"
+                gutterBottom
+              >
+                {product?.discountPercentage} % discount
+              </Typography>}
+
+              {product?.rating &&<Rating
+                name="read-only"
+                value={product?.rating}
+                precision={0.5}
+                readOnly
+                className="product-detail_rating"
+              />}
+
+              {product?.brand && (
+                <Typography
+                  variant="h5"
+                  className="product-detail_brand"
+                  gutterBottom
+                >
+                  Brand: {product?.brand}
+                </Typography>
+              )}
+              {product?.category && (
+                <Typography
+                  variant="h5"
+                  className="product-detail_category"
+                  gutterBottom
+                >
+                  Category: {product?.category}
+                </Typography>
+              )}
             </CardContent>
             <CardActions className="card_actions">
               <Button

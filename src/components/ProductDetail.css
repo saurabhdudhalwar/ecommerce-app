@@ -40,3 +40,31 @@
 .card_actions {
   margin-bottom: 0;
 }
+
+.product-detail_discount,
+.product-detail_rating,
+.product-detail_brand,
+.product-detail_category {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.product-detail_discount {
+  color: #e74c3c; 
+  font-weight: bold;
+}
+
+.product-detail_rating {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #f39c12; 
+}
+
+.product-detail_brand {
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.product-detail_category {
+  color: #16a085; 
+}

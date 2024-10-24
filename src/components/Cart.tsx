@@ -27,9 +27,9 @@ const Cart: React.FC = () => {
         {cartItems.map((item: any) => (
           <Card key={item.id} className="cart-item">
             <img
-              src={item.image}
+              src={item.thumbnail}
               className="cart-item__image"
-              alt="imageProduct"
+              alt={item.title}
             />
             <CardContent className="cart-item__content">
               <Typography variant="h6">{item.title}</Typography>

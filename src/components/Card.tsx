@@ -7,11 +7,19 @@ import {
 } from "@mui/material";
 import "./Card.css";
 
-const Card = ({ product, onAddToCart }: any) => {
+const Card = ({ product, onAddToCart, currentPage }: any) => {
   return (
     <MuiCard className="card">
-      <Link to={`/product/${product.id}`} className="card__link">
-        <img src={product.image} className="card__image" alt="productimagw" />
+      <Link
+        to={`/product/${product.id}`}
+        state={{ currentPage }} // Pass the current page
+        className="card__link"
+      >
+        <img
+          src={product.thumbnail}
+          className="card__image"
+          alt={product.title}
+        />
 
         <CardContent className="card__content">
           <Typography variant="h6" component="div" className="card__title">
